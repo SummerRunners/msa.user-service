@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: msa.user-service
+  data:
+    mongodb:
+      uri: mongodb+srv://admin:admin@user-service-cluster.s9base9.mongodb.net/user_service?retryWrites=true&w=majority
