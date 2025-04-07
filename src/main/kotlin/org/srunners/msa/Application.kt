@@ -1,4 +1,4 @@
-package org.srunners.msa.user
+package org.srunners.msa
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
