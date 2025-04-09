@@ -1,13 +1,13 @@
 package org.srunners.msa.wish.dto
 
 import org.srunners.msa.wish.domain.UserItemWish
-import java.time.Instant
+import java.time.LocalDateTime
 
 data class WishResponse(
     val id: Long?,
     val userId: String?,
     val itemId: String?,
-    val createdAt: Instant?
+    val createdAt: LocalDateTime?
 )
 
 fun UserItemWish.toResponse() = WishResponse(

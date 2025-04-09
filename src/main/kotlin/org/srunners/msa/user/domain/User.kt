@@ -2,6 +2,7 @@ package org.srunners.msa.user.domain
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
+import java.time.LocalDateTime
 
 @Document(collection = "users")
 data class User(
@@ -9,5 +10,6 @@ data class User(
     val loginId: String,
     val password: String,
     val userName: String,
-    val email: String
+    val email: String,
+    val createdAt: LocalDateTime = LocalDateTime.now()
 )

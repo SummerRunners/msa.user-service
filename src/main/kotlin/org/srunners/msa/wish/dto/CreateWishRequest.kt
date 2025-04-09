@@ -7,7 +7,7 @@ data class CreateWishRequest(
     val itemId: String
 )
 
-fun CreateWishRequest.toEntity(): UserItemWish = UserItemWish().apply {
-    this.userId = this@toEntity.userId
-    this.itemId = this@toEntity.itemId
-}
+fun CreateWishRequest.toEntity() = UserItemWish(
+    userId = userId,
+    itemId = itemId
+)
