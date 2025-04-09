@@ -7,7 +7,7 @@ import org.srunners.msa.user.dto.UserResponse
 import org.srunners.msa.user.service.UserService
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/u/users")
 class UserController(private val userService: UserService) {
 
     @PostMapping

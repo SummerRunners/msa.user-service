@@ -10,7 +10,7 @@ import org.srunners.msa.wish.dto.WishResponse
 import org.srunners.msa.wish.service.WishService
 
 @RestController
-@RequestMapping("/api/wishes")
+@RequestMapping("/api/u/wishes")
 class WishController(private val wishService: WishService) {
 
     @PostMapping("/{userId}/{itemId}")
