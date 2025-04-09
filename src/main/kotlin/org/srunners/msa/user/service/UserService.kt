@@ -15,11 +15,6 @@ class UserService(private val userRepository: UserRepository) {
         return user.toResponse()
     }
 
-    fun getUsers(condition: SearchUserCondition): List<UserResponse> {
-        val users = getUsersAll()
-        return users
-    }
-
     fun getUsersAll(): List<UserResponse> {
         val users = userRepository.findAll()
         return users.map(User::toResponse)
@@ -30,5 +25,10 @@ class UserService(private val userRepository: UserRepository) {
             ResponseStatusException(HttpStatus.NOT_FOUND)
         }
         return user.toResponse()
+    }
+
+    fun searchUsers(condition: SearchUserCondition): List<UserResponse> {
+        val users = getUsersAll()
+        return users
     }
 }

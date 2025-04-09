@@ -14,8 +14,11 @@ class UserController(private val userService: UserService) {
     fun createUser(@RequestBody request: CreateUserRequest): UserResponse = userService.createUser(request)
 
     @GetMapping
-    fun getUsers(@RequestBody condition: SearchUserCondition): List<UserResponse> = userService.getUsers(condition)
+    fun getUsersAll(): List<UserResponse> = userService.getUsersAll()
 
     @GetMapping("/{id}")
     fun getUser(@PathVariable id: String): UserResponse = userService.getUser(id)
+
+    @GetMapping("/search")
+    fun searchUsers(@RequestBody condition: SearchUserCondition): List<UserResponse> = userService.searchUsers(condition)
 }
