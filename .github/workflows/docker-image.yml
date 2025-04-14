@@ -32,4 +32,4 @@ jobs:
         DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
       run: |
         echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-        docker push ghdrms1992/user-service:latest
+        docker push ghdrms1992/msa.user-service:latest
