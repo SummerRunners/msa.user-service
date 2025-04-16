@@ -3,7 +3,7 @@
     <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
 
     <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-        <destination>10.21.140.175:5001</destination>
+        <destination>logstash:5001</destination>
         <reconnectionDelay>5000</reconnectionDelay> <!-- 5초 간격으로 재시도 -->
         <writeTimeout>3000</writeTimeout> <!-- 전송 타임아웃 설정 -->
         <keepAliveDuration>60000</keepAliveDuration> <!-- 연결 유지를 위한 설정 -->
