@@ -2,16 +2,24 @@
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
     <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
 
-    <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-        <destination>logstash:5001</destination>
-        <reconnectionDelay>5000</reconnectionDelay> <!-- 5초 간격으로 재시도 -->
-        <writeTimeout>3000</writeTimeout> <!-- 전송 타임아웃 설정 -->
-        <keepAliveDuration>60000</keepAliveDuration> <!-- 연결 유지를 위한 설정 -->
-        <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
-    </appender>
-
+    <!-- 콘솔 로깅은 모든 환경에서 공통 -->
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
-        <appender-ref ref="LOGSTASH"/>
     </root>
+
+    <!-- 운영 환경에서만 Logstash 추가 -->
+    <springProfile name="prod">
+        <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+            <destination>logstash:5001</destination>
+            <reconnectionDelay>5000</reconnectionDelay> <!-- 5초 간격으로 재시도 -->
+            <writeTimeout>3000</writeTimeout> <!-- 전송 타임아웃 설정 -->
+            <keepAliveDuration>60000</keepAliveDuration> <!-- 연결 유지를 위한 설정 -->
+            <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
+        </appender>
+
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="LOGSTASH"/>
+        </root>
+    </springProfile>
 </configuration>

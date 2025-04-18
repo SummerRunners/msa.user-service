@@ -48,4 +48,4 @@ jobs:
             docker pull ${{ secrets.DOCKER_USER }}/msa.user-service:latest
             docker stop user-service || true
             docker rm user-service || true
-            docker run -d -p 8081:8080 --name user-service --network srunners-network ${{ secrets.DOCKER_USER }}/msa.user-service:latest
+            docker run -d -p 8082:8082 --name user-service --network srunners-network -e "SPRING_PROFILES_ACTIVE=prod" ${{ secrets.DOCKER_USER }}/msa.user-service:latest

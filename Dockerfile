@@ -8,7 +8,7 @@ WORKDIR /app
 COPY build/libs/msa.user-service-0.0.1-SNAPSHOT.jar app.jar
 
 # 포트 노출
-EXPOSE 8080
+EXPOSE 8082
 
 # JAR 실행
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
